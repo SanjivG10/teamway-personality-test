@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SplashScreen from "./components/splash";
+import SplashScreen from "./pages/splash";
 
 const App = () => {
 
