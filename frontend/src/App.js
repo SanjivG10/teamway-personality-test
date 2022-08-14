@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SplashScreen from "./pages/splash";
 
-const App = () => {
+const Home = () => {
 
   const [loading, setLoading] = useState(true);
 
@@ -20,4 +20,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Home;

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 
-import Home from "./../pages/splash"
+import Home from "./../App"
 import Start from "./../pages/start"
 import Finish from "./../pages/finish"
 

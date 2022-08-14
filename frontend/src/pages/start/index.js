@@ -16,13 +16,12 @@ const Start = () => {
         (async () => {
             try {
                 const { data } = await axios.get(BACKEND_URL + "/questions");
-                setQuestions(data.questionsAnswers);
+                setQuestions(data);
             }
             catch {
                 console.log("error fething questions")
             }
         })();
-        // setQuestion(Questions[level])
     }, []);
 
     const handleNext = () => {

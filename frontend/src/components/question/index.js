@@ -4,7 +4,7 @@ const Question = ({ data, selectedAnswers, setSelectedAnswers }) => {
     const handleUserAnswer = (answerId) => {
         setSelectedAnswers((selectedAnswers) => {
             const newAnswer = {};
-            newAnswer[data.q.id] = answerId;
+            newAnswer[data?.q?.id] = answerId;
             return {
                 ...selectedAnswers, ...newAnswer
             }
@@ -19,16 +19,18 @@ const Question = ({ data, selectedAnswers, setSelectedAnswers }) => {
 
             {data?.a?.map((answer) => {
                 return <div
-                    key={answer.id}
+                    key={answer?.id}
+                    data-testid="answer"
                     className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer border-white/10 rounded-xl bg-white/5"
-                    onClick={() => handleUserAnswer(answer.id)}
+                    onClick={() => handleUserAnswer(answer?.id)}
                 >
                     <input
                         type="radio"
-                        name={answer.text}
-                        value={answer.text}
+                        data-testid="radio"
+                        name={answer?.text}
+                        value={answer?.text}
                         checked={
-                            answer.id === selectedAnswers[data.q.id]
+                            answer.id === selectedAnswers[data?.q?.id]
                         }
                         className="w-6 h-6 bg-black"
                         onChange={() => handleUserAnswer(answer.id)}
