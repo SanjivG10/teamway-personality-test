@@ -14,10 +14,10 @@ const Question = ({ data, selectedAnswers, setSelectedAnswers }) => {
     return (
         <div className="flex flex-col items-start w-full">
             <div className="mt-4 text-2xl text-white">
-                {data.q.text}
+                {data?.q?.text}
             </div>
 
-            {data.a.map((answer) => {
+            {data?.a?.map((answer) => {
                 return <div
                     key={answer.id}
                     className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer border-white/10 rounded-xl bg-white/5"

@@ -45,13 +45,13 @@ const Questions = [
 
 const Start = () => {
     const [level, setLevel] = useState(0);
-    const [question, setQuestion] = useState(Questions[level]);
+    const [question, setQuestion] = useState({});
     const [selectedAnswers, setSelectedAnswers] = useState({});
     const navigate = useNavigate()
 
     useEffect(() => {
-        setQuestion(Questions[level])
-    }, [level]);
+        // setQuestion(Questions[level])
+    }, []);
 
     const handleNext = () => {
         if (level !== Questions.length - 1) {
@@ -77,10 +77,10 @@ const Start = () => {
             <Question data={question} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers} />
 
             <div className="flex justify-between w-full mt-4 text-white">
-                <Button className='w-[49%]' disabled={!(selectedAnswers[question.q.id - 1])} onClick={handlePrev} >
+                <Button className='w-[49%]' disabled={!(selectedAnswers[question?.q?.id - 1])} onClick={handlePrev} >
                     Prev
                 </Button>
-                <Button className='w-[49%]' disabled={!(selectedAnswers[question.q.id])} onClick={handleNext} >
+                <Button className='w-[49%]' disabled={!(selectedAnswers[question?.q?.id])} onClick={handleNext} >
                     Next
                 </Button>
             </div>
