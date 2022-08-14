@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import Button from '../../components/button'
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Button from '../../components/button';
 import Personality from '../../components/personality';
+import { BACKEND_URL } from '../../constant';
 
 const Finish = () => {
 
@@ -15,8 +17,17 @@ const Finish = () => {
             return navigate("/")
         }
         const { selectedAnswers } = state;
-        // call axios and find answer
-        setResult("EXTROVERT")
+        (async () => {
+            try {
+                const { data } = await axios.post(BACKEND_URL + "/calculate", {
+                    selectedAnswers
+                });
+                setResult(data);
+            }
+            catch {
+                console.log("Couldn't calculate personality.")
+            }
+        })()
 
     }, []);
 
