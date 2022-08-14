@@ -65,7 +65,7 @@ export const getQuestionAnswers = () => {
                 {
                     id: 2,
                     text: "Think that they are obviously right",
-                    score: 1,
+                    score: -1,
                 },
                 {
                     id: 3,
