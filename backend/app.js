@@ -26,7 +26,7 @@ app.get("/questions", (req, res) => {
             })
         }
     })
-    return res.send({ questionsAnswers: refinedQuestionsAndAnswers });
+    return res.send(refinedQuestionsAndAnswers);
 })
 
 app.post("/calculate", (req, res) => {
@@ -50,8 +50,9 @@ app.post("/calculate", (req, res) => {
 
 })
 
-
 app.listen(PORT, () => {
     console.log("Listening to the PORT =>", PORT)
 })
+
+export default app;
 
