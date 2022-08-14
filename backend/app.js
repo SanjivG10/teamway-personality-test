@@ -1,9 +1,12 @@
 import express from "express";
+import cors from "cors";
 import { getQuestionAnswers } from "./db";
-import { validateRequest } from "./utils";
+import { validateRequest, calculatePersonality } from "./utils";
 import('dotenv/config')
 
 const app = express();
+app.use(cors())
+app.use(express.json())
 const PORT = parseInt(process.env.PORT || "8000");
 
 app.get("/questions", (req, res) => {
@@ -23,7 +26,7 @@ app.get("/questions", (req, res) => {
             })
         }
     })
-    return res.send({ data: refinedQuestionsAndAnswers });
+    return res.send({ questionsAnswers: refinedQuestionsAndAnswers });
 })
 
 app.post("/calculate", (req, res) => {
