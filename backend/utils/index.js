@@ -10,8 +10,9 @@ export const calculatePersonality = (answers) => {
     let score = 0;
     Object.entries(answers).map((entry) => {
         const [questionId, answerId] = entry;
-        const question = questionsAnswers.find((ques) => ques.id === questionId);
-        score += question.a[answerId].score;
+        const question = questionsAnswers.find((ques) => ques.id === parseInt(questionId));
+        const answer = question.a.find((answer) => answer.id === answerId);
+        score += answer.score;
     })
 
     return score > 0 ? "EXTROVERT" : "INTROVERT"
