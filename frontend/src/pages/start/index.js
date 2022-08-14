@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button';
 import Question from '../../components/question';
 
@@ -44,19 +45,31 @@ const Questions = [
 
 const Start = () => {
     const [level, setLevel] = useState(0);
-    const [question, setQuestion] = useState(Questions[0]);
+    const [question, setQuestion] = useState(Questions[level]);
     const [selectedAnswers, setSelectedAnswers] = useState({});
+    const navigate = useNavigate()
 
     useEffect(() => {
         setQuestion(Questions[level])
     }, [level]);
 
     const handleNext = () => {
-        setLevel((level) => level + 1)
+        if (level !== Questions.length - 1) {
+            setLevel((level) => level + 1)
+        }
+        else {
+            navigate("/finish", {
+                state: {
+                    selectedAnswers
+                }
+            })
+        }
     }
 
     const handlePrev = () => {
-        setLevel((level) => level - 1)
+        if (level !== 0) {
+            setLevel((level) => level - 1)
+        }
     }
 
     return (
