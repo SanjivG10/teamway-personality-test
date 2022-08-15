@@ -3,8 +3,6 @@ import axios from "axios";
 import { MemoryRouter as Router } from "react-router-dom";
 import Home from './../App';
 import StartPage from "./../pages/start";
-import FinishPage from "./../pages/finish";
-import { createMemoryHistory } from "history";
 
 
 afterEach(() => {
